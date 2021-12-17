@@ -5,7 +5,9 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "jsx": "react"
+    "jsx": "react",
+    "moduleResolution": "node",
+    "strict": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"],

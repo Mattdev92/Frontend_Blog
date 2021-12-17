@@ -1,0 +1,1 @@
+{"version":3,"file":"main.17134b072b3274aef413.css","mappings":";;;AAAA;IACI,iBAAiB;IACjB,YAAY;IACZ,WAAW;AACf,C","sources":["webpack://client/./src/pages/main/main.styles.css"],"sourcesContent":[".text{\n    background: green;\n    height:300px;\n    width:300px;\n}"],"names":[],"sourceRoot":""}
