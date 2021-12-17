@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkIsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: "development",
@@ -15,7 +16,7 @@ module.exports = {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
       "@": path.resolve(__dirname, "src"), // shortcut to reference src folder from anywhere
-      abcd$: path.resolve(__dirname, 'path/to/file_name.ts'),
+      abcd$: path.resolve(__dirname, "path/to/file_name.ts"),
     },
   },
   devServer: {
@@ -52,5 +53,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
     }),
+    new Dotenv()
   ],
 };

@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDom from "react-dom";
-import MainPage from "./pages/mainPage/index";
+import Root from './views/root';
 
 const App = () => {
-  return <MainPage />;
+  return <Root />;
 };
 
 const rootElement = document.getElementById("root");

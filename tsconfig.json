@@ -7,7 +7,7 @@
     "sourceMap": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "strict": false
+    "strict": false,
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.ts"],
