@@ -12,43 +12,24 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import TechCard from "../../components/molecules/card/card";
-import styled from "styled-components";
-
-const TechWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-`;
-
-const drawerWidth = 240;
-const PROFILE_QUERY = gql`
-  {
-    allArticles {
-      category
-      title
-      description
-    }
-  }
-`;
-interface AllArticles {
-  category: string;
-  title: string;
-  description: string;
-}
-interface FetchData {
-  allArticles: AllArticles[];
-}
+import {
+  TitleWrapper,
+  drawerWidth,
+} from "./styles/mainPage.styles";
+import { FetchData } from "./mainPage.types";
+import { PROFILE_QUERY } from "../../cms/queries";
+import Grid from '@mui/material/Grid';
 
 export default function MainPage() {
   const { error, loading, data } = useQuery<FetchData>(PROFILE_QUERY, {
     fetchPolicy: "network-only",
   });
-  console.log(data);
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :</p>;
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -58,7 +39,7 @@ export default function MainPage() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Permanent drawer
+            Frontend Space
           </Typography>
         </Toolbar>
       </AppBar>
@@ -67,19 +48,28 @@ export default function MainPage() {
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
       >
         <Toolbar />
-        <TechWrapper>
-          {Object.keys(data.allArticles).length !== 0 &&
-            data.allArticles.map(({ category, title, description }, idx) => {
-              return (
-                <TechCard
-                  type={category}
-                  title={title}
-                  description={description}
-                  key={idx}
-                />
-              );
-            })}
-        </TechWrapper>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid
+            container
+            spacing={{ xs: 2, md: 3 }}
+            columns={{ xs: 4, sm: 8, md: 12 }}
+          >
+            {Object.keys(data.allArticles).length !== 0 &&
+              data.allArticles.map(({ category, title, description, date }, idx) => {
+                return (
+                  <Grid item xs={2} sm={4} md={4} key={idx}>
+                    <TechCard
+                      type={category}
+                      title={title}
+                      description={description}
+                      key={idx}
+                      date={date}
+                    />
+                  </Grid>
+                );
+              })}
+          </Grid>
+        </Box>
       </Box>
       <Drawer
         sx={{
@@ -96,7 +86,12 @@ export default function MainPage() {
         <Toolbar />
         <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
+          <TitleWrapper>
+            <Typography variant="h4" gutterBottom component="div">
+              Informacje
+            </Typography>
+          </TitleWrapper>
+          {["O stronie...", "Kontakt"].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -106,8 +101,23 @@ export default function MainPage() {
           ))}
         </List>
         <Divider />
+        <TitleWrapper>
+          <Typography variant="h4" gutterBottom component="div">
+            Filtry
+          </Typography>
+        </TitleWrapper>
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
+          {[
+            "Html",
+            "Css",
+            "Js",
+            "React",
+            "Typescript",
+            "Frontend",
+            "Backend",
+            "Computer science",
+            "Algoritmic",
+          ].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}

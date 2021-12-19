@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
-export const MainWrapper = styled.div`
-  width: 400px;
-  height: 400px;
-  background: red;
+export const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 `;
+
+export const drawerWidth = 240;
