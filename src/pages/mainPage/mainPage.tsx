@@ -14,13 +14,10 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useQuery } from "@apollo/client";
 import TechCard from "../../components/molecules/card/card";
-import {
-  TitleWrapper,
-  drawerWidth,
-} from "./styles/mainPage.styles";
+import { TitleWrapper, drawerWidth } from "./styles/mainPage.styles";
 import { FetchData } from "./mainPage.types";
 import { PROFILE_QUERY } from "../../cms/queries";
-import Grid from '@mui/material/Grid';
+import Grid from "@mui/material/Grid";
 
 export default function MainPage() {
   const { error, loading, data } = useQuery<FetchData>(PROFILE_QUERY, {
@@ -55,19 +52,21 @@ export default function MainPage() {
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
             {Object.keys(data.allArticles).length !== 0 &&
-              data.allArticles.map(({ category, title, description, date }, idx) => {
-                return (
-                  <Grid item xs={2} sm={4} md={4} key={idx}>
-                    <TechCard
-                      type={category}
-                      title={title}
-                      description={description}
-                      key={idx}
-                      date={date}
-                    />
-                  </Grid>
-                );
-              })}
+              data.allArticles.map(
+                ({ category, title, description, date }, idx) => {
+                  return (
+                    <Grid item xs={2} sm={4} md={4} key={idx}>
+                      <TechCard
+                        type={category}
+                        title={title}
+                        description={description}
+                        key={idx}
+                        date={date}
+                      />
+                    </Grid>
+                  );
+                }
+              )}
           </Grid>
         </Box>
       </Box>
@@ -115,6 +114,7 @@ export default function MainPage() {
             "Typescript",
             "Frontend",
             "Backend",
+            "Git",
             "Computer science",
             "Algoritmic",
           ].map((text, index) => (
