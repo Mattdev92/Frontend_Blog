@@ -6,6 +6,7 @@ import { PROFILE_QUERY } from "../../cms/queries";
 import Navigation from "../../components/organism/navigation";
 import Content from "../../components/organism/content/content";
 import Sidebar from "../../components/organism/sidebar/sidebar";
+import { MainWrapperConfig, BoxWrapperConfig } from "./styles/mainPage.styles";
 
 export default function MainPage() {
   const { error, loading, data } = useQuery<FetchData>(PROFILE_QUERY, {
@@ -16,12 +17,9 @@ export default function MainPage() {
   if (error) return <p>Error :</p>;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={MainWrapperConfig}>
       <Navigation />
-      <Box
-        component="main"
-        sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
-      >
+      <Box component="main" sx={BoxWrapperConfig}>
         <Content data={data} />
       </Box>
       <Sidebar />

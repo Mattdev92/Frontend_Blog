@@ -19,19 +19,22 @@ import { TechCardProps } from "./card.types";
 import { MainWrapper, ExpandMore } from "./styles/card.styles";
 
 const TechCard: FC<TechCardProps> = ({ type, title, description, date }) => {
+
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   const cardDate = new Date(date);
   const convertedDate = cardDate.toISOString().substring(0, 10);
+
   return (
     <MainWrapper>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ minWidth: 200, maxWidth: 330 }}>
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            <Avatar sx={{ bgcolor: red[700] }} aria-label="recipe">
               {type}
             </Avatar>
           }
