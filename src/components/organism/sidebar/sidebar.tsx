@@ -41,18 +41,17 @@ const Sidebar: FC = () => {
       </TitleWrapper>
       <List>
         {filters.map((text, index) => (
-          <ListItem
-            button
-            key={text}
-            onClick={() => dispatch(ToogleFilter(text))}
-          >
-            {/* <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} /> */}
+          <ListItem>
             <FormControlLabel
-              control={<IOSSwitch sx={{ m: 1 }} defaultChecked />}
+              control={
+                <IOSSwitch
+                  sx={{ m: 1 }}
+                  defaultChecked={text === "Js" ? true : false}
+                />
+              }
               label={text}
+              onClick={() => dispatch(ToogleFilter(text))}
+              key={text}
             />
           </ListItem>
         ))}

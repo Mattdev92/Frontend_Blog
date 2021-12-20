@@ -1,4 +1,6 @@
 import React from "react";
-const dispatch: any = ()=>{}
+import { InitialState } from "../initialState";
+const dispatch: any = () => {};
+const state: any = {};
 
-export const MyContext = React.createContext({ state: {}, dispatch});
+export const MyContext = React.createContext({ state, dispatch });

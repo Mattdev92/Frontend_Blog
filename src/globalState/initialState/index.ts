@@ -1,14 +1,17 @@
-export const InitialState = {
+import { InitialStateType } from "./initialState.type";
+
+export const InitialState: InitialStateType = {
   filters: {
-    Html: true,
-    Css: true,
+    Html: false,
+    Css: false,
     Js: true,
-    React: true,
-    Frontend: true,
-    Backend: true,
-    Typescript: true,
-    Tt: true,
-    Git: true,
-    Algorithms: true
+    React: false,
+    Frontend: false,
+    Backend: false,
+    Typescript: false,
+    Tt: false,
+    Git: false,
+    Algorithms: false,
+    Projekty: false,
   },
 };

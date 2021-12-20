@@ -9,6 +9,7 @@ export const filters = [
   "Git",
   "It",
   "Algorithms",
+  "Projekty"
 ];
 
 export const info = ["O stronie...", "Kontakt"];
