@@ -1,6 +1,5 @@
-import { InitialStateType } from "./initialState.type";
-
-export const InitialState: InitialStateType = {
+import { StateType } from "./initialState.type";
+export const InitialState: StateType = {
   filters: {
     Html: false,
     Css: false,
@@ -9,7 +8,7 @@ export const InitialState: InitialStateType = {
     Frontend: false,
     Backend: false,
     Typescript: false,
-    Tt: false,
+    It: false,
     Git: false,
     Algorithms: false,
     Projekty: false,

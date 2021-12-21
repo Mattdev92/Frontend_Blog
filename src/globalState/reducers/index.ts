@@ -1,6 +1,9 @@
-import { InitialStateType } from "../initialState/initialState.type";
+import { StateType } from "../initialState/initialState.type";
 
-export function reducer(state: any, action: any) {
+export function reducer(
+  state: StateType,
+  action: { type: string; payload: string }
+) {
   switch (action.type) {
     case "ToogleFilter":
       return {

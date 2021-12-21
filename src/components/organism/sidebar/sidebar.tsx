@@ -22,7 +22,15 @@ import { Button } from "@mui/material";
 
 const Sidebar: FC = () => {
   const { state, dispatch } = useContext(MyContext);
-
+  const handleChange = (text: any) => {
+    dispatch(ToogleFilter(text));
+  };
+  const setAll = () => {
+    dispatch(SetFilters());
+  };
+  const clearAll = () => {
+    dispatch(ClearFilters());
+  };
   return (
     <Drawer sx={MainWrapperConfig} variant="permanent" anchor="right">
       <TitleWrapper>
@@ -46,39 +54,24 @@ const Sidebar: FC = () => {
       </TitleWrapper>
       <List>
         <ListItem>
-          <Button
-            variant="outlined"
-            color="error"
-            onClick={() => dispatch(ClearFilters())}
-          >
+          <Button variant="outlined" color="error" onClick={clearAll}>
             Clear all
           </Button>
         </ListItem>
         <ListItem>
-          <Button
-            variant="contained"
-            color="success"
-            onClick={() => dispatch(SetFilters())}
-          >
+          <Button variant="contained" color="success" onClick={setAll}>
             Set all
           </Button>
         </ListItem>
-
         {filters.map((text, idx) => (
-          <ListItem
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-            key={idx}
-          >
+          <ListItem key={idx}>
             <FormControlLabel
               control={
                 <IOSSwitch
                   sx={{ m: 1 }}
-                  onClick={() => {
-                    dispatch(ToogleFilter(text));
-                  }}
                   checked={state.filters[text]}
+                  onChange={() => handleChange(text)}
+                  inputProps={{ "aria-label": "controlled" }}
                 />
               }
               label={text}
