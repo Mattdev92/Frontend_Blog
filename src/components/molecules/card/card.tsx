@@ -17,6 +17,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import img from "../../../assets/images/it.jpg";
 import { TechCardProps } from "./card.types";
 import { MainWrapper, ExpandMore } from "./styles/card.styles";
+import { Chip } from "@mui/material";
 
 const TechCard: FC<TechCardProps> = ({ type, title, description, date }) => {
 
@@ -34,9 +35,7 @@ const TechCard: FC<TechCardProps> = ({ type, title, description, date }) => {
       <Card sx={{ minWidth: 200, maxWidth: 330 }}>
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: red[700] }} aria-label="recipe">
-              {type}
-            </Avatar>
+            <Chip avatar={<Avatar>{type[0]}</Avatar>} label={type} />
           }
           action={
             <IconButton aria-label="settings">
