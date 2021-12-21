@@ -24,6 +24,7 @@ export function reducer(state: any, action: any) {
           It: false,
           Git: false,
           Algorithms: false,
+          Projekty: false,
         },
       };
     case "SetAllFilters":
@@ -40,6 +41,7 @@ export function reducer(state: any, action: any) {
           It: true,
           Git: true,
           Algorithms: true,
+          Projekty: true,
         },
       };
     default:

@@ -1,4 +1,4 @@
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -11,9 +11,14 @@ import MailIcon from "@mui/icons-material/Mail";
 import { TitleWrapper, MainWrapperConfig } from "./styles/sidebar.styles";
 import { filters, info } from "../../../helpers/helpers";
 import { MyContext } from "../../../globalState/context";
-import { ToogleFilter } from "../../../globalState/actions";
+import {
+  ToogleFilter,
+  ClearFilters,
+  SetFilters,
+} from "../../../globalState/actions";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { IOSSwitch } from "./styles/switch.styles";
+import { Button } from "@mui/material";
 
 const Sidebar: FC = () => {
   const { state, dispatch } = useContext(MyContext);
@@ -40,17 +45,43 @@ const Sidebar: FC = () => {
         </Typography>
       </TitleWrapper>
       <List>
-        {filters.map((text, index) => (
-          <ListItem>
+        <ListItem>
+          <Button
+            variant="outlined"
+            color="error"
+            onClick={() => dispatch(ClearFilters())}
+          >
+            Clear all
+          </Button>
+        </ListItem>
+        <ListItem>
+          <Button
+            variant="contained"
+            color="success"
+            onClick={() => dispatch(SetFilters())}
+          >
+            Set all
+          </Button>
+        </ListItem>
+
+        {filters.map((text, idx) => (
+          <ListItem
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+            key={idx}
+          >
             <FormControlLabel
               control={
                 <IOSSwitch
                   sx={{ m: 1 }}
-                  defaultChecked={text === "Js" ? true : false}
+                  onClick={() => {
+                    dispatch(ToogleFilter(text));
+                  }}
+                  checked={state.filters[text]}
                 />
               }
               label={text}
-              onClick={() => dispatch(ToogleFilter(text))}
               key={text}
             />
           </ListItem>
