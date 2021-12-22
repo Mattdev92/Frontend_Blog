@@ -1,16 +1,17 @@
 import { StateType } from "./initialState.type";
 export const InitialState: StateType = {
   filters: {
-    Html: false,
-    Css: false,
+    Html: true,
+    Css: true,
     Js: true,
-    React: false,
-    Frontend: false,
-    Backend: false,
-    Typescript: false,
-    It: false,
-    Git: false,
-    Algorithms: false,
-    Projekty: false,
+    React: true,
+    Frontend: true,
+    Backend: true,
+    Typescript: true,
+    It: true,
+    Git: true,
+    Algorithms: true,
+    Projekty: true,
   },
+  filtersActive: false
 };

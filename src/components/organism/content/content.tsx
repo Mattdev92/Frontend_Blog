@@ -1,17 +1,31 @@
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { ContentProps } from "./content.types";
 import TechCard from "../../molecules/card/card";
 import { MyContext } from "../../../globalState/context";
 import { FilteredCategory } from "../../../helpers/helpers";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { IOSSwitch } from "./styles/switch.styles";
+import { ToogleFilters } from "../../../globalState/actions";
 
 const Content: FC<ContentProps> = ({ data }) => {
-  const { state } = useContext(MyContext);
+  const { state, dispatch } = useContext(MyContext);
   const { filters } = state;
 
   return (
     <Box sx={{ flexGrow: 1, marginTop: 10 }}>
+      <FormControlLabel
+        control={
+          <IOSSwitch
+            sx={{ m: 1 }}
+            checked={state.filtersActive}
+            onChange={() => dispatch(ToogleFilters())}
+            inputProps={{ "aria-label": "controlled" }}
+          />
+        }
+        label="Filtry"
+      />
       <Grid
         container
         spacing={{ xs: 2, md: 2 }}

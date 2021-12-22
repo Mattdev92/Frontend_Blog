@@ -47,6 +47,11 @@ export function reducer(
           Projekty: true,
         },
       };
+    case "ToogleFilters":
+      return {
+        ...state,
+        filtersActive: !state.filtersActive
+      };
     default:
       return state;
   }

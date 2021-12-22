@@ -1,5 +1,5 @@
 import { drawerWidth } from "./styles/navigation.styles";
-import * as React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,16 +13,12 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
-const pages = ["Baza wiedzy", "Quiz", "Blog"];
-const settings = ["Profil", 'Login'];
+const pages = ["O stronie...", "Baza wiedzy", "Quiz", "Blog"];
+const settings = ["Profil", "Login"];
 
 const Navigation = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -40,10 +36,7 @@ const Navigation = () => {
   };
 
   return (
-    <AppBar
-      position="fixed"
-      sx={{ width: `calc(100% - ${drawerWidth}px)`, mr: `${drawerWidth}px` }}
-    >
+    <AppBar position="fixed" sx={{ width: `100%` }} color="secondary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -54,7 +47,6 @@ const Navigation = () => {
           >
             LOGO
           </Typography>
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -110,7 +102,6 @@ const Navigation = () => {
               </Button>
             ))}
           </Box>
-
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

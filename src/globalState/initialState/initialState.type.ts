@@ -21,4 +21,5 @@ export interface StateType {
   filters: {
     [key: string]: boolean;
   };
+  filtersActive: boolean;
 }
