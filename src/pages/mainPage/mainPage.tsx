@@ -58,11 +58,10 @@ const Loading = () => {
   return <CircularProgressWithLabel value={progress} />;
 };
 export default function MainPage() {
-  console.log("render");
   const { error, loading, data } = useQuery<FetchData>(PROFILE_QUERY, {
     fetchPolicy: "network-only",
   });
-
+  console.log(data);
   if (loading)
     return (
       <MainWrapper>
