@@ -8,6 +8,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
+    publicPath: "/",
     path: path.resolve(__dirname, "dist"),
     filename: "js/main.js",
   },
@@ -20,8 +21,10 @@ module.exports = {
     },
   },
   devServer: {
+    historyApiFallback: true,
     static: "./dist",
     port: 8000,
+    hot: true,
   },
   module: {
     rules: [

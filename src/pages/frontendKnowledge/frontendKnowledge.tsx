@@ -3,7 +3,7 @@ import MainTemplate from "../../templates/mainTemplate";
 import FrontendKnowledgeView from "../../views/frontendKnowledgeView";
 
 const FrontendKnowledgePage: FC = () => {
-  console.log('click')
+  console.log('click');
   return (
     <MainTemplate>
       <FrontendKnowledgeView />

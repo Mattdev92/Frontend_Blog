@@ -11,8 +11,10 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { Link } from "react-router-dom";
+
 const pages = ["Baza wiedzy", "O stronie...", "Quiz"];
-const pageUrl = ["bazawiedzy", "about", "quiz"];
+const pageUrl = ["/bazawiedzy", "/about", "/quiz"];
 const settings = ["Profil", "Login"];
 
 const Navigation = () => {
@@ -76,9 +78,11 @@ const Navigation = () => {
               }}
             >
               {pages.map((page, i) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link to={pageUrl[i]} key={page}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>

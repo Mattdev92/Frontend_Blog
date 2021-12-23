@@ -19,7 +19,6 @@ const FrontendKnowledgeView: FC = () => {
   const { error, loading, data } = useQuery<FetchData>(PROFILE_QUERY, {
     fetchPolicy: "network-only",
   });
-  console.log(data);
   if (loading)
     return (
       <MainWrapper>
