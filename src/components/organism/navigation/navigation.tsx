@@ -1,4 +1,3 @@
-import { drawerWidth } from "./styles/navigation.styles";
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,8 +11,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-
-const pages = ["O stronie...", "Baza wiedzy", "Quiz", "Blog"];
+const pages = ["Baza wiedzy", "O stronie...", "Quiz"];
+const pageUrl = ["bazawiedzy", "about", "quiz"];
 const settings = ["Profil", "Login"];
 
 const Navigation = () => {
@@ -76,7 +75,7 @@ const Navigation = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {pages.map((page, i) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>

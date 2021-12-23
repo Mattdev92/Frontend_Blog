@@ -12,10 +12,3 @@ export const BoxWrapperConfig = {
 
 export const drawerWidth = 240;
 
-export const MainWrapper = styled.div`
-  height: 100vh;
-  width: 100%;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-`;

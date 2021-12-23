@@ -1,18 +1,33 @@
 import React, { FC, useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { ContentProps } from "./content.types";
-import TechCard from "../../molecules/card/card";
-import { MyContext } from "../../../globalState/context";
-import { FilteredCategory } from "../../../helpers/helpers";
+import TechCard from "../../components/molecules/card/card";
+import { MyContext } from "../../globalState/context";
+import { FilteredCategory } from "../../helpers/helpers";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { IOSSwitch } from "./styles/switch.styles";
-import { ToogleFilters } from "../../../globalState/actions";
+import { ToogleFilters } from "../../globalState/actions";
+import { useQuery } from "@apollo/client";
+import { FetchData } from './frontendKnowledgeView.types';
+import { PROFILE_QUERY } from "../../cms/queries";
+import { MainWrapper } from "./styles/frontendKnowledgeView";
+import Loading from "./loading";
 
-const Content: FC<ContentProps> = ({ data }) => {
+const FrontendKnowledgeView: FC = () => {
   const { state, dispatch } = useContext(MyContext);
   const { filters } = state;
-
+  const { error, loading, data } = useQuery<FetchData>(PROFILE_QUERY, {
+    fetchPolicy: "network-only",
+  });
+  console.log(data);
+  if (loading)
+    return (
+      <MainWrapper>
+        <Loading />
+      </MainWrapper>
+    );
+  if (error) return <p>Error :</p>;
+  
   return (
     <Box sx={{ flexGrow: 1, marginTop: 10 }}>
       <FormControlLabel
@@ -51,4 +66,4 @@ const Content: FC<ContentProps> = ({ data }) => {
   );
 };
 
-export default Content;
+export default FrontendKnowledgeView;
