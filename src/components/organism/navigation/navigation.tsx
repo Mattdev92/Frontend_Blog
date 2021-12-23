@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const pages = ["Baza wiedzy", "O stronie...", "Quiz"];
 const pageUrl = ["/bazawiedzy", "/about", "/quiz"];
@@ -78,11 +78,13 @@ const Navigation = () => {
               }}
             >
               {pages.map((page, i) => (
-                <Link to={pageUrl[i]} key={page}>
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                </Link>
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">
+                    <NavLink to={pageUrl[i]} key={page}>
+                      {page}
+                    </NavLink>
+                  </Typography>
+                </MenuItem>
               ))}
             </Menu>
           </Box>
@@ -95,13 +97,13 @@ const Navigation = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
+            {pages.map((page, i) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                <NavLink to={pageUrl[i]}>{page}</NavLink>
               </Button>
             ))}
           </Box>
