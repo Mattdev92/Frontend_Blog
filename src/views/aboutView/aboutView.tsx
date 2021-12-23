@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 `;
 
 const AboutView: FC = () => {
-  console.log("about view");
   return <Wrapper>AboutView</Wrapper>;
 };
 

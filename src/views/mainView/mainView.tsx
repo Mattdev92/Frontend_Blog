@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 const MainView: FC = () => {
-  console.log("Mainview");
   return (
     <Wrapper>
       <Link to="/about">about</Link>
