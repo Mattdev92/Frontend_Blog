@@ -1,9 +1,8 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import MainTemplate from "../../templates/mainTemplate";
-import MainView from '../../views/mainView';
+import MainView from "../../views/mainView";
 
 const MainPage: FC = () => {
-  console.log('jestem');
   return (
     <MainTemplate>
       <MainView />

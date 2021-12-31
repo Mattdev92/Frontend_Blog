@@ -8,8 +8,6 @@ import {
 } from "./styles/mainTemplate.styles";
 
 const MainTemplate: FC = ({ children }) => {
-  console.log("here");
-
   return (
     <Box sx={MainWrapperConfig}>
       <Navigation />

@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import MainTemplate from "../../templates/mainTemplate";
 import AboutView from "../../views/aboutView";
 

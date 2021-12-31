@@ -1,4 +1,5 @@
 import { StateType } from "./initialState.type";
+
 export const InitialState: StateType = {
   filters: {
     Html: true,
@@ -13,5 +14,5 @@ export const InitialState: StateType = {
     Algorithms: true,
     Projekty: true,
   },
-  filtersActive: false
+  filtersActive: false,
 };

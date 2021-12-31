@@ -1,7 +1,7 @@
 import React from "react";
-import { ExpandMoreProps } from "../card.types";
 import { styled } from "@mui/material/styles";
 import IconButton from "@mui/material/IconButton";
+import { ExpandMoreProps } from "../card.types";
 
 export const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, ...other } = props;

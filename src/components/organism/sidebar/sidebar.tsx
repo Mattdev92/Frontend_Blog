@@ -1,9 +1,11 @@
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useContext } from "react";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { Button } from "@mui/material";
 import { TitleWrapper } from "./styles/sidebar.styles";
 import { filters } from "../../../helpers/helpers";
 import { MyContext } from "../../../globalState/context";
@@ -11,11 +13,9 @@ import {
   ToogleFilter,
   ClearFilters,
   SetFilters,
+  ToogleFilters,
 } from "../../../globalState/actions";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { IOSSwitch } from "./styles/switch.styles";
-import { Button } from "@mui/material";
-import { ToogleFilters } from "../../../globalState/actions";
 
 const Sidebar: FC = () => {
   const { state, dispatch } = useContext(MyContext);
@@ -46,7 +46,7 @@ const Sidebar: FC = () => {
         </Typography>
       </TitleWrapper>
       <List>
-      <ListItem>
+        <ListItem>
           <Button variant="contained" color="success" onClick={apply}>
             Apply changes
           </Button>
@@ -61,8 +61,8 @@ const Sidebar: FC = () => {
             Clear all
           </Button>
         </ListItem>
-        {filters.map((text, idx) => (
-          <ListItem key={idx}>
+        {filters.map((text) => (
+          <ListItem key={`${text}`}>
             <FormControlLabel
               control={
                 <IOSSwitch

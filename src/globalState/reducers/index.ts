@@ -50,7 +50,7 @@ export function reducer(
     case "ToogleFilters":
       return {
         ...state,
-        filtersActive: !state.filtersActive
+        filtersActive: !state.filtersActive,
       };
     default:
       return state;

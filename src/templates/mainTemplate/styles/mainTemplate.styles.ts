@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 export const MainWrapperConfig = {
   display: "flex",
 };
@@ -11,4 +9,3 @@ export const BoxWrapperConfig = {
 };
 
 export const drawerWidth = 240;
-

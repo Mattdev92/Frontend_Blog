@@ -1,5 +1,4 @@
-import React from "react";
-import { FC } from "react";
+import React, { FC } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -9,18 +8,16 @@ import Collapse from "@mui/material/Collapse";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { Chip } from "@mui/material";
 import img from "../../../assets/images/it.jpg";
 import { TechCardProps } from "./card.types";
 import { MainWrapper, ExpandMore } from "./styles/card.styles";
-import { Chip } from "@mui/material";
 
 const TechCard: FC<TechCardProps> = ({ type, title, description, date }) => {
-
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -34,9 +31,7 @@ const TechCard: FC<TechCardProps> = ({ type, title, description, date }) => {
     <MainWrapper>
       <Card sx={{ minWidth: 200, maxWidth: 330 }}>
         <CardHeader
-          avatar={
-            <Chip avatar={<Avatar>{type[0]}</Avatar>} label={type} />
-          }
+          avatar={<Chip avatar={<Avatar>{type[0]}</Avatar>} label={type} />}
           action={
             <IconButton aria-label="settings">
               <MoreVertIcon />

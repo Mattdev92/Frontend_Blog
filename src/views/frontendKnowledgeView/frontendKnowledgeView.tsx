@@ -1,14 +1,14 @@
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useContext } from "react";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { useQuery } from "@apollo/client";
 import TechCard from "../../components/molecules/card/card";
 import { MyContext } from "../../globalState/context";
 import { FilteredCategory } from "../../helpers/helpers";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { IOSSwitch } from "./styles/switch.styles";
 import { ToogleFilters } from "../../globalState/actions";
-import { useQuery } from "@apollo/client";
-import { FetchData } from './frontendKnowledgeView.types';
+import { FetchData } from "./frontendKnowledgeView.types";
 import { PROFILE_QUERY } from "../../cms/queries";
 import { MainWrapper } from "./styles/frontendKnowledgeView";
 import Loading from "./loading";
@@ -19,6 +19,7 @@ const FrontendKnowledgeView: FC = () => {
   const { error, loading, data } = useQuery<FetchData>(PROFILE_QUERY, {
     fetchPolicy: "network-only",
   });
+
   if (loading)
     return (
       <MainWrapper>
@@ -26,7 +27,7 @@ const FrontendKnowledgeView: FC = () => {
       </MainWrapper>
     );
   if (error) return <p>Error :</p>;
-  
+
   return (
     <Box sx={{ flexGrow: 1, marginTop: 10 }}>
       <FormControlLabel
@@ -47,14 +48,14 @@ const FrontendKnowledgeView: FC = () => {
       >
         {Object.keys(data.allArticles).length !== 0 &&
           data.allArticles.map(
-            ({ category, title, description, date }, idx) =>
+            ({ category, title, description, date }) =>
               FilteredCategory(category.toUpperCase(), filters) && (
-                <Grid item xs={4} sm={4} md={4} key={idx}>
+                <Grid item xs={4} sm={4} md={4} key={title}>
                   <TechCard
                     type={category}
                     title={title}
                     description={description}
-                    key={idx}
+                    key={title}
                     date={date}
                   />
                 </Grid>

@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/function-component-definition */
 import React, { FC } from "react";
 import styled from "styled-components";
 
