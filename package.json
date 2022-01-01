@@ -3,27 +3,41 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve",
     "build": "webpack",
-    "lint": "prettier --check .",
-    "lint:fix": "./node_modules/.bin/eslint . --fix",
-    "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write . && git add -A ."
-    }
+    "prelint": "prettier --check .",
+    "lint": "eslint . --ext .ts,.tsx,.js",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js --fix",
+    "prepare": "husky install",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.0",
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
     "@babel/preset-react": "^7.16.0",
-    "@babel/preset-typescript": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.7",
     "@types/graphql": "^14.5.0",
+    "@types/jest": "^27.4.0",
     "@types/mini-css-extract-plugin": "^2.4.0",
     "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.11",
@@ -44,6 +58,7 @@
     "fork-ts-checker-webpack-plugin": "^6.4.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
+    "jest": "^27.4.5",
     "mini-css-extract-plugin": "^2.4.5",
     "prettier": "^2.5.1",
     "ts-node": "^10.4.0",
@@ -60,9 +75,11 @@
     "@mui/icons-material": "^5.2.4",
     "@mui/material": "^5.2.4",
     "@types/styled-components": "^5.1.18",
+    "babel-jest": "^27.4.5",
     "babel-plugin-styled-components": "^2.0.2",
     "babel-plugin-transform-imports": "^2.0.0",
     "dotenv-webpack": "^7.0.3",
+    "eslint-plugin-html": "^6.2.0",
     "graphql": "^16.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

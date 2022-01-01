@@ -9,6 +9,11 @@
     "moduleResolution": "node",
     "strict": false,
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.ts"],
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ],
 }

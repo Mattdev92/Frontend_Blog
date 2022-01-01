@@ -3,13 +3,13 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { useQuery } from "@apollo/client";
+import { PROFILE_QUERY } from "../../cms/queries";
 import TechCard from "../../components/molecules/card/card";
 import { MyContext } from "../../globalState/context";
 import { FilteredCategory } from "../../helpers/helpers";
 import { IOSSwitch } from "./styles/switch.styles";
 import { ToogleFilters } from "../../globalState/actions";
 import { FetchData } from "./frontendKnowledgeView.types";
-import { PROFILE_QUERY } from "../../cms/queries";
 import { MainWrapper } from "./styles/frontendKnowledgeView";
 import Loading from "./loading";
 
@@ -27,7 +27,6 @@ const FrontendKnowledgeView: FC = () => {
       </MainWrapper>
     );
   if (error) return <p>Error :</p>;
-
   return (
     <Box sx={{ flexGrow: 1, marginTop: 10 }}>
       <FormControlLabel
@@ -50,7 +49,7 @@ const FrontendKnowledgeView: FC = () => {
           data.allArticles.map(
             ({ category, title, description, date }) =>
               FilteredCategory(category.toUpperCase(), filters) && (
-                <Grid item xs={4} sm={4} md={4} key={title}>
+                <Grid item xs={4} sm={4} md={4} key={`${category}${title}`}>
                   <TechCard
                     type={category}
                     title={title}

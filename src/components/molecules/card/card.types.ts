@@ -7,6 +7,7 @@ export interface ExpandMoreProps extends IconButtonProps {
 export interface TechCardProps {
   type: string;
   title: string;
+
   description: string;
   date: string;
 }

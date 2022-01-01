@@ -6,9 +6,10 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import { Button } from "@mui/material";
+import { MyContext } from "../../../globalState/context";
 import { TitleWrapper } from "./styles/sidebar.styles";
 import { filters } from "../../../helpers/helpers";
-import { MyContext } from "../../../globalState/context";
+
 import {
   ToogleFilter,
   ClearFilters,

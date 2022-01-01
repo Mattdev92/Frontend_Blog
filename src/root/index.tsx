@@ -16,7 +16,7 @@ const Root: FC = () => {
       state,
       dispatch,
     }),
-    []
+    [state]
   );
   return (
     <BrowserRouter>
