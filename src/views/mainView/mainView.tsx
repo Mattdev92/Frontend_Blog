@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import CircleIcons from "../../components/molecules/circleIcons/cirlceIcons";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const MainView: FC = () => {
   return (
     <Wrapper>
-      <Link to="/about">about</Link>
+      <CircleIcons />
     </Wrapper>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PanoramaPhotosphereIcon from "@mui/icons-material/PanoramaPhotosphere";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,7 +12,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { NavLink } from "react-router-dom";
+import { StyledLink, LogoIcon } from "./styles/navigation.styles";
 
 const pages = ["Baza wiedzy", "O stronie...", "Quiz"];
 const pageUrl = ["/bazawiedzy", "/about", "/quiz"];
@@ -37,7 +38,7 @@ const Navigation = () => {
   };
 
   return (
-    <AppBar position="fixed" sx={{ width: "100%" }} color="secondary">
+    <AppBar position="fixed" sx={{ width: "100%" }} color="transparent">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -46,7 +47,9 @@ const Navigation = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            LOGO
+            <LogoIcon to="/">
+              <PanoramaPhotosphereIcon />
+            </LogoIcon>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -80,9 +83,9 @@ const Navigation = () => {
               {pages.map((page, i) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <NavLink to={pageUrl[i]} key={page}>
+                    <StyledLink to={pageUrl[i]} key={page}>
                       {page}
-                    </NavLink>
+                    </StyledLink>
                   </Typography>
                 </MenuItem>
               ))}
@@ -94,7 +97,9 @@ const Navigation = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            LOGO
+            <LogoIcon to="/">
+              <PanoramaPhotosphereIcon />
+            </LogoIcon>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page, i) => (
@@ -103,7 +108,7 @@ const Navigation = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                <NavLink to={pageUrl[i]}>{page}</NavLink>
+                <StyledLink to={pageUrl[i]}>{page}</StyledLink>
               </Button>
             ))}
           </Box>

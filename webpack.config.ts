@@ -52,6 +52,10 @@ module.exports = {
         use: [
           {
             loader: "file-loader",
+            options: {
+              outputPath: "assets",
+              name: "[name].[ext]",
+            },
           },
         ],
       },
