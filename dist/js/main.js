@@ -28024,6 +28024,28 @@ var MainWrapper = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_1__["default"
 
 /***/ }),
 
+/***/ "./src/components/molecules/circleIcons/cirlceIcons.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/molecules/circleIcons/cirlceIcons.tsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var CircleIcons = function CircleIcons() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Hello World");
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CircleIcons);
+
+/***/ }),
+
 /***/ "./src/components/organism/navigation/index.tsx":
 /*!******************************************************!*\
   !*** ./src/components/organism/navigation/index.tsx ***!
@@ -29371,16 +29393,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _components_molecules_circleIcons_cirlceIcons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/molecules/circleIcons/cirlceIcons */ "./src/components/molecules/circleIcons/cirlceIcons.tsx");
 
 
-var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.withConfig({
+
+var Wrapper = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div.withConfig({
   displayName: "mainView__Wrapper",
   componentId: "sc-5tue06-0"
 })(["height:100vh;width:100%;display:flex;justify-content:center;align-items:center;"]);
 
 var MainView = function MainView() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Wrapper, null);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Wrapper, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_molecules_circleIcons_cirlceIcons__WEBPACK_IMPORTED_MODULE_1__["default"], null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MainView);
