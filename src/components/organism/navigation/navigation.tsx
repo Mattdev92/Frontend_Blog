@@ -12,6 +12,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import axios from "axios";
 import { StyledLink, LogoIcon } from "./styles/navigation.styles";
 
 const pages = ["Baza wiedzy", "O stronie...", "Quiz"];
@@ -21,7 +22,7 @@ const settings = ["Profil", "Login"];
 const Navigation = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-
+  const [login, setLogin] = useState(false);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -35,6 +36,19 @@ const Navigation = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+  const checkLogin = (sessionlogin: string) =>
+    sessionlogin === "true" && setLogin(true);
+
+  const handleLogin = () => {
+    axios.post("/login").then(() => {
+      checkLogin(sessionStorage.getItem("login"));
+    });
+  };
+  const handleLogout = () => {
+    axios.post("/logout").then(() => {
+      setLogin(false);
+    });
   };
 
   return (
@@ -115,7 +129,10 @@ const Navigation = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" />
+                <Avatar
+                  alt="Remy Sharp"
+                  src={login ? "/assets/it.jpg" : "/assets/nima.jpg"}
+                />
               </IconButton>
             </Tooltip>
             <Menu
@@ -136,7 +153,12 @@ const Navigation = () => {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography
+                    textAlign="center"
+                    onClick={setting === "Login" ? handleLogin : handleLogout}
+                  >
+                    {setting}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
