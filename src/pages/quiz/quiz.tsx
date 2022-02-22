@@ -1,13 +1,13 @@
 import React, { FC } from "react";
 import MainTemplate from "../../templates/mainTemplate";
-import AboutView from "../../views/aboutView";
+import QuizView from "../../views/quizView/quizView";
 
-const QuizPage: FC = () => {
+const AboutPage: FC = () => {
   return (
     <MainTemplate>
-      <AboutView />
+      <QuizView />
     </MainTemplate>
   );
 };
 
-export default QuizPage;
+export default AboutPage;

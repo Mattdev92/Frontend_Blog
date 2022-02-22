@@ -2,6 +2,7 @@ import React, { FC, useReducer, useMemo } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
 import AboutPage from "../pages/about";
+import QuizPage from "../pages/quiz";
 import FrontendKnowledgePage from "../pages/frontendKnowledge";
 import MainPage from "../pages/main";
 import client from "../cms/apollo/client";
@@ -26,6 +27,7 @@ const Root: FC = () => {
             <Route path="/" element={<MainPage />} />
             <Route path="/bazawiedzy" element={<FrontendKnowledgePage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="quiz" element={<QuizPage />} />
           </Routes>
         </ApolloProvider>
       </MyContext.Provider>
