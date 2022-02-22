@@ -5,6 +5,7 @@ import AboutPage from "../pages/about";
 import QuizPage from "../pages/quiz";
 import FrontendKnowledgePage from "../pages/frontendKnowledge";
 import MainPage from "../pages/main";
+import DetailPage from "../pages/detailPage";
 import client from "../cms/apollo/client";
 import { MyContext } from "../globalState/context";
 import { reducer } from "../globalState/reducers";
@@ -27,7 +28,8 @@ const Root: FC = () => {
             <Route path="/" element={<MainPage />} />
             <Route path="/bazawiedzy" element={<FrontendKnowledgePage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="quiz" element={<QuizPage />} />
+            <Route path="/quiz" element={<QuizPage />} />
+            <Route path="/:id/deitails" element={<DetailPage />} />
           </Routes>
         </ApolloProvider>
       </MyContext.Provider>
