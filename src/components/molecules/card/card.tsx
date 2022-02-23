@@ -13,7 +13,13 @@ import img from "../../../assets/images/it.jpg";
 import { TechCardProps } from "./card.types";
 import { MainWrapper } from "./styles/card.styles";
 
-const TechCard: FC<TechCardProps> = ({ type, title, description, date }) => {
+const TechCard: FC<TechCardProps> = ({
+  type,
+  title,
+  description,
+  date,
+  id,
+}) => {
   const cardDate = new Date(date);
   const convertedDate = cardDate.toISOString().substring(0, 10);
 
@@ -35,7 +41,7 @@ const TechCard: FC<TechCardProps> = ({ type, title, description, date }) => {
           <Typography variant="body2" color="text.secondary">
             {description}
           </Typography>
-          <Link to="/2/deitails">Datils</Link>
+          <Link to={`/deitails/:${id}`}>Datils</Link>
         </CardContent>
       </Card>
     </MainWrapper>

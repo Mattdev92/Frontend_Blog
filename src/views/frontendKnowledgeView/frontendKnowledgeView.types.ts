@@ -3,6 +3,7 @@ export interface AllArticles {
   title: string;
   description: string;
   date: string;
+  id?: number;
 }
 
 export interface FetchData {

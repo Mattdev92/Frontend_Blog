@@ -7,6 +7,7 @@ export const PROFILE_QUERY = gql`
       title
       description
       date
+      id
     }
   }
 `;

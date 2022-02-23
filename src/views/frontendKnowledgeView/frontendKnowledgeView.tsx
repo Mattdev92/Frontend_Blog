@@ -47,7 +47,7 @@ const FrontendKnowledgeView: FC = () => {
       >
         {Object.keys(data.allArticles).length !== 0 &&
           data.allArticles.map(
-            ({ category, title, description, date }) =>
+            ({ category, title, description, date, id }) =>
               FilteredCategory(category.toUpperCase(), filters) && (
                 <Grid item xs={4} sm={4} md={4} key={`${category}${title}`}>
                   <TechCard
@@ -56,6 +56,7 @@ const FrontendKnowledgeView: FC = () => {
                     description={description}
                     key={title}
                     date={date}
+                    id={id}
                   />
                 </Grid>
               )

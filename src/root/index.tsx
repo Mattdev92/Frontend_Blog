@@ -29,7 +29,7 @@ const Root: FC = () => {
             <Route path="/bazawiedzy" element={<FrontendKnowledgePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/quiz" element={<QuizPage />} />
-            <Route path="/:id/deitails" element={<DetailPage />} />
+            <Route path="/deitails/:id" element={<DetailPage />} />
           </Routes>
         </ApolloProvider>
       </MyContext.Provider>

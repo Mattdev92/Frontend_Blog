@@ -9,5 +9,5 @@ export interface TechCardProps {
   title: string;
   description: string;
   date: string;
-  id?: string;
+  id?: number;
 }
