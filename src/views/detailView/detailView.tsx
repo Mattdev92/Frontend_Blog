@@ -32,7 +32,7 @@ const DetalView: FC = () => {
   if (error) {
     return <Wrapper>sorry we have problems...</Wrapper>;
   }
-  console.log(id);
+
   const detailData: AllArticles[] = data.allArticles.filter(
     (item) => `:${item.id.toString()}` === id
   );
